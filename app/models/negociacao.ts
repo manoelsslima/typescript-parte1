@@ -1,4 +1,8 @@
 export class Negociacao {
+
+    // outra forma de modelar a classe. O TS infere os atributos da classe
+    constructor(private _data: Date, private _quantidade: number, private _valor: number) {}
+    /*
     private _data: Date;
     private _quantidade: number;
     private _valor: number;
@@ -8,7 +12,7 @@ export class Negociacao {
         this._quantidade = quantidade;
         this._valor = valor;
     }
-
+    */
     get data(): Date {
         return this._data;
     }
