@@ -1,10 +1,10 @@
 export class Negociacao {
 
-    constructor(public readonly data: Date, public readonly quantidade: number, public readonly valor: number) {}
+    //constructor(public readonly data: Date, public readonly quantidade: number, public readonly valor: number) {}
 
     // outra forma de modelar a classe. O TS infere os atributos da classe
     //constructor(private _data: Date, private _quantidade: number, private _valor: number) {}
-    /*
+/*
     private _data: Date;
     private _quantidade: number;
     private _valor: number;
@@ -14,19 +14,19 @@ export class Negociacao {
         this._quantidade = quantidade;
         this._valor = valor;
     }
-    
+*/
+    constructor(
+        private _data: Date,
+        public readonly quantidade: number,
+        public readonly valor: number) {}
+
     get data(): Date {
-        return this._data;
+        // programação defensiva. Evita o data.setDate(x) dos objetos Date
+        // comportamento similar ao clone
+        const data = new Date(this._data.getTime());
+        return this.data;
     }
 
-    get quantidade(): number {
-        return this._quantidade;
-    }
-
-    get valor(): number {
-        return this._valor;
-    }
-    */
     get volume(): number {
         return this.quantidade * this.valor;
     }
