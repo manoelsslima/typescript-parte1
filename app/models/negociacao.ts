@@ -1,7 +1,9 @@
 export class Negociacao {
 
+    constructor(public readonly data: Date, public readonly quantidade: number, public readonly valor: number) {}
+
     // outra forma de modelar a classe. O TS infere os atributos da classe
-    constructor(private _data: Date, private _quantidade: number, private _valor: number) {}
+    //constructor(private _data: Date, private _quantidade: number, private _valor: number) {}
     /*
     private _data: Date;
     private _quantidade: number;
@@ -12,7 +14,7 @@ export class Negociacao {
         this._quantidade = quantidade;
         this._valor = valor;
     }
-    */
+    
     get data(): Date {
         return this._data;
     }
@@ -24,8 +26,8 @@ export class Negociacao {
     get valor(): number {
         return this._valor;
     }
-
+    */
     get volume(): number {
-        return this._quantidade * this._valor;
+        return this.quantidade * this.valor;
     }
 }
